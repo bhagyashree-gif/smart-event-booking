@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SmartEvent - Discover and book passes for campus concerts, hackathons, tech workshops, and live college fests.">
+    <title>SmartEvent &mdash; Where Campus Comes Alive!</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css?v=6">
+</head>
+<body>
+
+    <!-- 1. Navigation Bar -->
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"/>
+                    </svg>
+                </div>
+                <span>SmartEvent</span>
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#eventsSection" class="nav-link active">Explore Events</a></li>
+                    <li><a href="#howItWorks" class="nav-link">How It Works</a></li>
+                </ul>
+            </nav>
+
+            <!-- Logged-Out Actions (Separate Browser Tabs) -->
+            <div class="nav-actions" id="guestNavActions">
+                <a id="openCustomerAuthBtn" href="login.html" target="_blank" rel="noopener" class="btn btn-outline btn-sm">
+                    <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                    </svg>
+                    <span>Customer Sign In</span>
+                </a>
+                <a id="openAdminAuthBtn" href="admin.html" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                    <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    </svg>
+                    <span>Admin Login</span>
+                </a>
+            </div>
+
+            <!-- Logged-In Customer Actions -->
+            <div class="nav-actions" id="userNavActions" style="display: none;">
+                <span id="userGreetingPill" class="user-greeting-pill">👋 Hi!</span>
+                <button id="myBookingsBtn" class="btn btn-primary btn-sm">
+                    <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"/>
+                    </svg>
+                    <span>My Bookings (<span id="myBookingsCountBadge">0</span>)</span>
+                </button>
+                <a href="admin.html" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Admin Login &nearr;</a>
+                <button id="logoutBtn" class="btn btn-outline btn-sm">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 2. Joyful Light Festival Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-pill">
+                    <span class="hero-pill-pulse"></span>
+                    <span>🎉 Campus Fest Season Is Live &bull; Grab Your Pass Before Seats Fill Up!</span>
+                </div>
+
+                <h1 class="hero-title">
+                    Where Campus Comes Alive &mdash;<br>
+                    <span>Grab Your Crew, Pick Your Vibe &amp; Make Memories!</span>
+                </h1>
+
+                <p class="hero-desc">
+                    From 36-hour hackathons and electric rock nights to hands-on AI bootcamps and stadium finals&mdash;rally your friends, pick your vibe, and lock in your spot in seconds!
+                </p>
+
+                <!-- Quick Vibe Chips -->
+                <div class="hero-vibe-tags">
+                    <a href="#eventsSection" class="vibe-chip vibe-coral">🎸 Live Concerts &amp; DJ Nights</a>
+                    <a href="#eventsSection" class="vibe-chip vibe-violet">💻 36-Hr Hackathons</a>
+                    <a href="#eventsSection" class="vibe-chip vibe-teal">🏆 Esports &amp; Sports Finals</a>
+                    <a href="#eventsSection" class="vibe-chip vibe-amber">🎤 TEDx &amp; Creator Talks</a>
+                </div>
+
+                <!-- Hero Metrics Strip -->
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">8+</div>
+                        <div class="stat-label">Buzzing Campus Events</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Vibes &amp; Categories</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">30s</div>
+                        <div class="stat-label">Superfast Checkout</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">1-Click</div>
+                        <div class="stat-label">Instant QR Pass</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Search & Filter Bar Section -->
+        <section class="controls-section" id="eventsSection">
+            <div class="container">
+                <div class="controls-card">
+                    <!-- Search & Sort Row -->
+                    <div class="search-row">
+                        <div class="search-input-wrap">
+                            <svg class="search-icon" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            </svg>
+                            <input type="text" id="searchInput" class="search-input" placeholder="What are you in the mood for? Try 'Rock Night', 'HackMatrix', 'Esports'...">
+                        </div>
+
+                        <select id="sortSelect" class="filter-select" aria-label="Sort events">
+                            <option value="date">Sort by: Upcoming Soonest</option>
+                            <option value="price-low">Sort by: Price (Low to High)</option>
+                            <option value="price-high">Sort by: Price (High to Low)</option>
+                            <option value="popularity">Sort by: Most Popular</option>
+                        </select>
+                    </div>
+
+                    <!-- Category Filter Tabs -->
+                    <div class="category-pills" role="tablist">
+                        <button class="category-pill active" data-category="all" role="tab">✨ All Experiences</button>
+                        <button class="category-pill" data-category="tech" role="tab">💻 Tech Fests &amp; Hackathons</button>
+                        <button class="category-pill" data-category="workshop" role="tab">🔬 Workshops &amp; Bootcamps</button>
+                        <button class="category-pill" data-category="concert" role="tab">🎸 Concerts &amp; Cultural</button>
+                        <button class="category-pill" data-category="sports" role="tab">🏆 Sports &amp; Gaming</button>
+                        <button class="category-pill" data-category="college" role="tab">🎓 TEDx &amp; Talks</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Events Grid Section -->
+        <section class="events-section">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title">🔥 Trending on Campus Right Now</h2>
+                        <p class="section-subtitle">Handpicked experiences everyone's talking about this semester &mdash; grab your seat before it's gone!</p>
+                    </div>
+                    <span id="eventsCount" class="events-count">Loading events...</span>
+                </div>
+
+                <!-- Event Cards Grid rendered via JavaScript -->
+                <div id="eventsGrid" class="events-grid"></div>
+            </div>
+        </section>
+
+        <!-- 5. How It Works Section -->
+        <section class="how-section" id="howItWorks">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 34px;">
+                    <h2 class="section-title">✨ From "Let's Go!" to Front Row in 30 Seconds</h2>
+                    <p class="section-subtitle">Zero queues, zero paper slips &mdash; just pure campus fun</p>
+                </div>
+
+                <div class="how-grid">
+                    <div class="how-card">
+                        <div class="how-icon how-icon-1">🎯</div>
+                        <h3>1. Find Your Vibe</h3>
+                        <p>Explore live concerts, coding marathons, hands-on workshops, and gaming tournaments happening across campus.</p>
+                    </div>
+                    <div class="how-card">
+                        <div class="how-icon how-icon-2">🎟️</div>
+                        <h3>2. Pick Your Pass</h3>
+                        <p>Sign in once to auto-fill your details, choose Student, General, or VIP perks, and book for yourself or your whole group.</p>
+                    </div>
+                    <div class="how-card">
+                        <div class="how-icon how-icon-3">🥳</div>
+                        <h3>3. Show Up &amp; Shine</h3>
+                        <p>Download your sleek single-page QR E-Ticket PDF in one click, flash it at the gate, and enjoy the show!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 6. Booking Modal -->
+    <div id="bookingModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="bookingModalTitle">Reserve Your Spot 🎟️</h3>
+                <button id="bookingModalClose" class="modal-close-btn" aria-label="Close modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <!-- Event preview snippet -->
+                <div id="bookingPreviewContainer"></div>
+
+                <form id="bookingForm">
+                    <!-- Step 1: Select Tier -->
+                    <div class="form-group">
+                        <label class="form-label">1. Choose Your Pass Tier</label>
+                        <div id="tierOptionsContainer" class="tier-options-list"></div>
+                    </div>
+
+                    <!-- Step 2: Quantity Selector -->
+                    <div class="form-group">
+                        <label class="form-label">2. How Many Passes?</label>
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <div class="quantity-control">
+                                <button type="button" id="qtyMinusBtn" class="qty-btn" aria-label="Decrease quantity">&minus;</button>
+                                <span id="qtyValue" class="qty-value">1</span>
+                                <button type="button" id="qtyPlusBtn" class="qty-btn" aria-label="Increase quantity">&plus;</button>
+                            </div>
+                            <span style="font-size: 0.8rem; color: var(--text-muted);">Max 10 passes per order</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Attendee Details -->
+                    <div class="form-group">
+                        <label class="form-label">3. Attendee Details</label>
+                        
+                        <div class="form-row" style="margin-bottom: 12px;">
+                            <div>
+                                <input type="text" id="attendeeName" class="form-input" placeholder="Full Name *" required>
+                            </div>
+                            <div>
+                                <input type="email" id="attendeeEmail" class="form-input" placeholder="College Email *" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div>
+                                <input type="text" id="attendeeRoll" class="form-input" placeholder="Student Roll No / ID (Optional)">
+                            </div>
+                            <div>
+                                <input type="tel" id="attendeePhone" class="form-input" placeholder="Phone Number *" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Price Breakdown Receipt -->
+                    <div class="price-breakdown">
+                        <div class="price-row">
+                            <span>Ticket Subtotal:</span>
+                            <span id="subtotalAmount">$0.00</span>
+                        </div>
+                        <div class="price-row">
+                            <span>Campus Convenience Fee:</span>
+                            <span id="serviceFeeAmount">$0.00</span>
+                        </div>
+                        <div class="price-row total-row">
+                            <span>Grand Total:</span>
+                            <span id="totalAmount">$0.00</span>
+                        </div>
+                    </div>
+
+                    <div class="demo-disclaimer">
+                        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="flex-shrink: 0;">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span><strong>Instant QR Pass:</strong> Your confirmed pass and single-page printable PDF will be ready right away!</span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block" style="padding: 12px;">
+                        Confirm Booking &amp; Get Pass &rarr;
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. Booking Confirmation / Digital E-Ticket Modal -->
+    <div id="confirmationModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="confirmModalTitle">
+        <div class="modal-card" style="max-width: 600px;">
+            <div class="modal-header">
+                <h3 id="confirmModalTitle">You're Going! 🎉</h3>
+                <button id="confirmationModalClose" class="modal-close-btn" aria-label="Close confirmation">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <!-- E-Ticket Container rendered via JavaScript -->
+                <div id="ticketContainer"></div>
+
+                <div class="ticket-actions-row">
+                    <button id="printTicketBtn" class="btn btn-primary" style="flex: 1;">
+                        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
+                        </svg>
+                        <span>Print / Save Pass (PDF)</span>
+                    </button>
+                    <button id="closeConfirmBtn" class="btn btn-secondary">
+                        Done / Explore More
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 9. Customer My Bookings Modal -->
+    <div id="myBookingsModal" class="modal-overlay" role="dialog" aria-modal="true">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>My Passes &amp; Bookings 🎟️</h3>
+                <button id="myBookingsClose" class="modal-close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="myBookingsSubtitle" style="font-size: 0.86rem; color: var(--text-secondary); margin-bottom: 16px;">
+                    Here are all your confirmed campus passes. Click any pass to view or download its PDF!
+                </p>
+                <div id="myBookingsList"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 9. Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <div class="logo-icon" style="width: 32px; height: 32px;">
+                            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"/>
+                            </svg>
+                        </div>
+                        <span style="font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; color: var(--text-primary);">SmartEvent</span>
+                    </div>
+                    <p>Making every campus concert, hackathon, workshop, and matchday effortless to join.</p>
+                </div>
+                <div>
+                    <a href="#eventsSection" class="btn btn-secondary btn-sm">Back to Top &uarr;</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; 2026 SmartEvent Campus Ticketing. All rights reserved.</span>
+                <span>Made for Unforgettable Campus Moments ✨</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/data.js?v=6"></script>
+    <script src="js/app.js?v=6"></script>
+</body>
+</html>

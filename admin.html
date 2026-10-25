@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal | SmartEvent</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=6">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container">
+            <a href="admin.html" class="logo">
+                <div class="logo-icon">
+                    <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    </svg>
+                </div>
+                <span>SmartEvent Admin</span>
+            </a>
+
+            <div class="nav-actions">
+                <span id="adminUserPill" class="user-greeting-pill" style="display: none;">🛡️ Admin</span>
+                <button id="refreshAdminBtn" class="btn btn-outline btn-sm" style="display: none;">↻ Refresh Counts</button>
+                <a href="index.html" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Event Website &nearr;</a>
+                <button id="adminLogoutBtn" class="btn btn-primary btn-sm" style="display: none;">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- View 1: Dedicated Admin Login Card -->
+        <section id="adminLoginSection" class="portal-shell">
+            <div class="portal-card">
+                <div class="portal-card-header">
+                    <span class="portal-badge">🛡️ Organizer &amp; Admin Portal</span>
+                    <h1>Admin Sign In</h1>
+                    <p>Sign in to monitor live ticket counts, seat occupancy, and customer bookings.</p>
+                </div>
+
+                <div class="portal-card-body">
+                    <div id="adminAlert" class="portal-alert"></div>
+
+                    <form id="adminLoginForm" class="auth-form">
+                        <div class="form-group">
+                            <label class="form-label" for="adminEmail">Admin Email</label>
+                            <input type="email" id="adminEmail" class="form-input" placeholder="admin@smartevent.edu" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="adminPassword">Admin Password</label>
+                            <input type="password" id="adminPassword" class="form-input" placeholder="Enter admin password" required>
+                        </div>
+                        <div class="quick-cred-box">
+                            <span>🛡️ Admin Demo: <code>admin@smartevent.edu</code> / <code>admin123</code></span>
+                            <button type="button" id="fillDemoAdminBtn" class="quick-fill-btn">Auto-Fill</button>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block" style="padding: 12px;">
+                            Open Admin Dashboard &rarr;
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- View 2: Full-Page Live Admin Dashboard -->
+        <section id="adminDashboardSection" class="admin-page-wrap" style="display: none;">
+            <div class="container">
+                <div class="admin-page-header">
+                    <div>
+                        <h1 style="font-size: 1.9rem; font-weight: 800; color: var(--text-primary);">📊 Live Ticket Bookings &amp; Revenue Overview</h1>
+                        <p style="font-size: 0.92rem; color: var(--text-secondary); margin-top: 4px;">
+                            Real-time counts across all campus events and confirmed customer orders.
+                        </p>
+                    </div>
+                    <span id="lastUpdatedBadge" class="user-greeting-pill">🟢 Live Sync Active</span>
+                </div>
+
+                <!-- 4 KPI Summary Cards -->
+                <div class="admin-kpi-grid" id="adminKpiGrid"></div>
+
+                <!-- Event-wise Ticket Count Breakdown -->
+                <div class="admin-panel-card">
+                    <h4 class="admin-section-title">🎟️ Tickets Booked Per Event</h4>
+                    <div class="admin-table-wrap">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Event</th>
+                                    <th>Date</th>
+                                    <th>Tickets Booked</th>
+                                    <th>Seats Left</th>
+                                    <th>Revenue</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminEventsTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- All Customer Bookings -->
+                <div class="admin-panel-card" style="margin-bottom: 0;">
+                    <h4 class="admin-section-title">🧾 All Customer Bookings</h4>
+                    <div class="admin-table-wrap">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Booking Ref</th>
+                                    <th>Customer</th>
+                                    <th>Event &amp; Tier</th>
+                                    <th>Qty</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminBookingsTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/admin.js?v=6"></script>
+</body>
+</html>

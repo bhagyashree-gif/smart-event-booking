@@ -1,0 +1,25 @@
+{
+  "name": "smart-event-booking",
+  "version": "1.0.0",
+  "description": "Smart Event & Ticket Booking System - College Major Project with SQLite Relational DBMS",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node backend/server.js",
+    "setup-db": "node backend/setup-db.js"
+  },
+  "keywords": [
+    "event-booking",
+    "dbms",
+    "sqlite",
+    "college-project"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}

@@ -1,0 +1,33 @@
+# Node.js dependencies
+node_modules/
+
+# Environment variables & local secrets (keep .env.example tracked)
+.env
+.env.*
+!.env.example
+
+# SQLite runtime database binaries & WAL/SHM/journal files
+# Note: events.db is automatically generated from schema.sql + seed.sql on first "npm start"
+*.db
+*.db-shm
+*.db-wal
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# Logs & package manager debug files
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Operating system & IDE metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Sign In | SmartEvent</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=6">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"/>
+                    </svg>
+                </div>
+                <span>SmartEvent</span>
+            </a>
+
+            <div class="nav-actions">
+                <a href="index.html" class="btn btn-outline btn-sm">&larr; Back to Events</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="portal-shell">
+        <div class="portal-card">
+            <div class="portal-card-header">
+                <span class="portal-badge">🎓 Customer Portal</span>
+                <h1>Welcome to SmartEvent 👋</h1>
+                <p>Sign in or create your student account to book campus passes in seconds.</p>
+            </div>
+
+            <div class="portal-card-body">
+                <p id="eventRedirectPrompt" class="auth-prompt-banner" style="display: none;"></p>
+                <div id="portalAlert" class="portal-alert"></div>
+
+                <!-- Guest Sign-In / Sign-Up View -->
+                <div id="customerGuestView">
+                    <div class="auth-tabs" role="tablist">
+                        <button type="button" class="auth-tab active" data-auth-tab="login">Customer Sign In</button>
+                        <button type="button" class="auth-tab" data-auth-tab="register">Create Account</button>
+                    </div>
+
+                    <!-- Form 1: Customer Sign In -->
+                    <form id="customerLoginForm" class="auth-form">
+                        <div class="form-group">
+                            <label class="form-label" for="loginEmail">College / Personal Email</label>
+                            <input type="email" id="loginEmail" class="form-input" placeholder="e.g., student@college.edu" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="loginPassword">Password</label>
+                            <input type="password" id="loginPassword" class="form-input" placeholder="Enter your password" required>
+                        </div>
+                        <div class="quick-cred-box">
+                            <span>🎓 Demo Account: <code>student@college.edu</code> / <code>student123</code></span>
+                            <button type="button" id="fillDemoStudentBtn" class="quick-fill-btn">Auto-Fill</button>
+                        </div>
+                        <button type="submit" id="loginSubmitBtn" class="btn btn-primary btn-block" style="padding: 12px;">
+                            Sign In &amp; Continue &rarr;
+                        </button>
+                    </form>
+
+                    <!-- Form 2: Customer Sign Up -->
+                    <form id="customerRegisterForm" class="auth-form" style="display: none;">
+                        <div class="form-row" style="margin-bottom: 12px;">
+                            <div>
+                                <label class="form-label" for="regName">Full Name *</label>
+                                <input type="text" id="regName" class="form-input" placeholder="Aarav Sharma" required>
+                            </div>
+                            <div>
+                                <label class="form-label" for="regRoll">Roll No / ID</label>
+                                <input type="text" id="regRoll" class="form-input" placeholder="CSE-2026-104">
+                            </div>
+                        </div>
+                        <div class="form-row" style="margin-bottom: 12px;">
+                            <div>
+                                <label class="form-label" for="regEmail">Email Address *</label>
+                                <input type="email" id="regEmail" class="form-input" placeholder="you@college.edu" required>
+                            </div>
+                            <div>
+                                <label class="form-label" for="regPhone">Phone Number *</label>
+                                <input type="tel" id="regPhone" class="form-input" placeholder="9876543210" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="regPassword">Create Password * (min 6 characters)</label>
+                            <input type="password" id="regPassword" class="form-input" placeholder="Create a password" minlength="6" required>
+                        </div>
+                        <button type="submit" id="registerSubmitBtn" class="btn btn-primary btn-block" style="padding: 12px;">
+                            Create Account &amp; Start Booking 🎉
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Signed-In Customer View -->
+                <div id="customerSignedInView" style="display: none; text-align: center; padding: 8px 0;">
+                    <div style="font-size: 3rem; margin-bottom: 8px;">🎉</div>
+                    <h3 id="signedInName" style="font-size: 1.3rem; font-weight: 800; color: var(--text-primary); margin-bottom: 4px;">You're Signed In!</h3>
+                    <p id="signedInMeta" style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 22px;"></p>
+
+                    <a id="continueToEventsBtn" href="index.html" class="btn btn-primary btn-block" style="padding: 12px; margin-bottom: 10px;">
+                        Explore Events &amp; Book Passes &rarr;
+                    </a>
+                    <button type="button" id="customerSignOutBtn" class="btn btn-outline btn-block" style="padding: 10px;">
+                        Sign Out / Switch Account
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/login.js?v=6"></script>
+</body>
+</html>
